@@ -115,7 +115,7 @@ class SignUp extends Component {
                                     <option value="LOW">Niski</option>
                                     <option value="AVERAGE">Średni</option>
                                     <option value="HIGH">Wysoki</option>
-                                    <option value="VERY_HIGHE">Bardzo wysoki</option>
+                                    <option value="VERY_HIGH">Bardzo wysoki</option>
                                 </select>
                             </div>
                             <button type="submit" className="btn btn-primary">Sign Up</button>
