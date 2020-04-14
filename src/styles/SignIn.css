@@ -1,0 +1,13 @@
+.container.signinup-container {
+    /* background-color: #ccffcc; */
+    margin-top: 8%;
+    /* padding: 60px; */
+}
+
+.signin-card {
+    padding: 20px;
+}
+
+.input-form {
+    padding: 5px;
+}

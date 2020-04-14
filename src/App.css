@@ -1,8 +1,11 @@
 .App {
   text-align: center;
+  /* background-color: #5cd65c; */
 }
 
-
+body {
+  background-color: #9fff80;
+}
 
 @media (prefers-reduced-motion: no-preference) {
 
