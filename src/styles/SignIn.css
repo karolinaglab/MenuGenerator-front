@@ -11,3 +11,10 @@
 .input-form {
     padding: 5px;
 }
+
+.error {
+    color: #ff0000;
+    text-decoration-line: underline;
+    text-decoration-style: solid 20px;
+    margin-bottom: 10px;
+}

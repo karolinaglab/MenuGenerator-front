@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
-import axios from 'axios'
+import API from '../axiosConfig';
 
 class SignUp extends Component {
 
@@ -15,7 +14,7 @@ class SignUp extends Component {
         bodyWeight:'',
         age:'',
         activity:'',
-        sex:''
+        sex:'',
         }
     }
 
@@ -66,7 +65,7 @@ class SignUp extends Component {
           sex: this.state.sex
         };
     
-        axios.post(`http://localhost:8080/auth/signup`, user)
+        API.post(`/auth/signup`, user)
           .then(res => {
             console.log(res);
             console.log(res.data);

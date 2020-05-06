@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import '../styles/SignIn.css';
-import axios from 'axios'
+import API from '../axiosConfig';
 
 
 class SignIn extends Component {
@@ -12,7 +12,8 @@ class SignIn extends Component {
         super(props);
         this.state={
         usernameOrEmail:'',
-        password:''
+        password:'',
+        isError: false
         }
     }
 
@@ -32,13 +33,15 @@ class SignIn extends Component {
           password: this.state.password
         };
     
-        axios.post(`http://localhost:8080/auth/signin`, user)
+        API.post(`/auth/signin`, user)
           .then(res => {
             console.log(res);
             console.log(res.data);
+            localStorage.setItem('accessToken',`${res.data.tokenType} ${res.data.accessToken}`);
             this.props.history.push("/main")
           })
           .catch((error) => {
+              this.setState({isError: true});
               console.log(error);
           })
       }
@@ -49,7 +52,7 @@ class SignIn extends Component {
                 <div className="row">
                     <div className="col"></div>
                     <div className="col-sm-12 col-md-8">
-                        <h1>Wtaj w kreatorze jadłospisów!</h1>
+                        <h1>Witaj w kreatorze jadłospisów!</h1>
                         <h2>Zaloguj się</h2>
                         <form className="signin-form" onSubmit={this.handleSubmit}>
                             <div className="form-group input-form">
@@ -58,6 +61,7 @@ class SignIn extends Component {
                             <div className="form-group input-form">
                                 <input type="password" className="form-control" onChange={this.handlePasswordChange} id="password" placeholder="Hasło*"/>
                             </div>
+                            {this.state.isError && <div className="error">Niepoprawny login lub hasło! Spróbuj ponownie lub zarejstruj się</div>}
                             <button type="submit" className="btn btn-primary">Zaloguj się</button>
                         </form>
                         <Link to="/signup">Nie posiadasz jeszcze konta? Zarejestruj się!</Link>
