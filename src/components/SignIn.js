@@ -38,7 +38,8 @@ class SignIn extends Component {
             console.log(res);
             console.log(res.data);
             localStorage.setItem('accessToken',`${res.data.tokenType} ${res.data.accessToken}`);
-            this.props.history.push("/main")
+            this.props.signIn();
+            this.props.history.push("/main");
           })
           .catch((error) => {
               this.setState({isError: true});

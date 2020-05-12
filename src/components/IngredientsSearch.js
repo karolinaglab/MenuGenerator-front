@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import '../styles/SignIn.css';
 import '../styles/IngredientsSearch.css';
 import API from '../axiosConfig';
+import NavigationBar from './NavigationBar';
 
 class IngredientsSearch extends Component {
 
@@ -14,11 +14,15 @@ class IngredientsSearch extends Component {
             name: ''
         }
         this.delay = undefined;
+
+        if(!localStorage.getItem('accessToken')) {
+            this.props.history.push("/")
+        }
     }
 
 
     componentDidMount() {
-        API.get(`/ingredient`)
+        API.get(`/ingredient`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -54,7 +58,7 @@ class IngredientsSearch extends Component {
     
         const name = this.state.name;
     
-        API.get(`/ingredients/?name=${name}`)
+        API.get(`/ingredients/?name=${name}`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -70,19 +74,6 @@ class IngredientsSearch extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar">
-                    <ul className="topnav">
-                        <div className="brand">Menu<span className="generator">Generator</span></div>
-                        <li><Link className="nav-link" to="/main">Strona główna</Link></li>
-                        <li><Link className="nav-link" to="/main">Profil</Link></li>
-                        <li><Link className="nav-link" to="/main#">Jadłospisy</Link></li>
-                        <li><Link className="nav-link" to="/main">Przepisy</Link></li>
-                        <li><Link className="nav-link" to="/ingredients">Składniki</Link></li>
-                        <button className="logout btn btn-outline-dark" onClick={this.handleOnClick}>Wyloguj się</button>
-                    </ul>
-                </nav>
-
-
                 <h1>Lista składników wraz z ich kalorycznością</h1>
 
                 <nav className="navbar navbar-light  ingredientNav">

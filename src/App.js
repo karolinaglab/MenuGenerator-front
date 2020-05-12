@@ -1,24 +1,67 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router} from "react-router-dom";
-import {Routing} from "./Routing";
-import SignIn from "./components/SignIn"; 
+
+import SignIn from "./components/SignIn";
 import './App.css';
+import NavigationBar from './components/NavigationBar';
+import {
+  Switch,
+  Route,
+  withRouter
+} from "react-router-dom";
+
+import MainPage from './components/MainPage';
+import SignUp from './components/SignUp';
+import IngredientsSearch from './components/IngredientsSearch';
+import RecipesList from './components/RecipesList';
 
 class App extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLogged: false
+    }
+  }
+
+  signIn = () => {
+    this.setState({isLogged: true});
+  }
+
+  signOut = () => {
+    this.setState({isLogged: false})
+  }
+
+  componentDidMount() {
+    if(localStorage.getItem('accessToken')) {
+      this.setState({ isLogged: true })
+      this.props.history.replace("/main")
+    }
+  }
 
   render() {
     return (
       <div className="App">
-         <Router>
-          <Routing/>
-        </Router>
+         {this.state.isLogged &&  <NavigationBar signOut={this.signOut}></NavigationBar>}
+         <Switch>
+          <Route exact path="/">
+            <SignIn signIn={this.signIn} />
+          </Route>
+          <Route exact path="/main">
+            <MainPage />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/ingredients">
+            <IngredientsSearch />
+          </Route>
+          <Route exact path="/recipes">
+            <RecipesList />
+          </Route>
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

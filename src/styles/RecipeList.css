@@ -1,0 +1,26 @@
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.recipes-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-object {
+    max-width: 250px;
+    margin: 1rem;
+}
+
+.recipe-img {
+    width: 100%;
+    transition: .2s ease-in-out;
+}
+
+.recipe-img:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
