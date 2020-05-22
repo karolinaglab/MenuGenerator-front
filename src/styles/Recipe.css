@@ -1,0 +1,20 @@
+.recipeTitle {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.recipeContainer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipeDetails {
+    text-align: left;
+}
+
+.recipeDescription {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}

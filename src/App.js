@@ -13,6 +13,7 @@ import MainPage from './components/MainPage';
 import SignUp from './components/SignUp';
 import IngredientsSearch from './components/IngredientsSearch';
 import RecipesList from './components/RecipesList';
+import Recipe from './components/Recipe';
 
 class App extends Component {
 
@@ -57,6 +58,9 @@ class App extends Component {
           </Route>
           <Route exact path="/recipes">
             <RecipesList />
+          </Route>
+          <Route exact path="/recipe/:id">
+            <Recipe />
           </Route>
         </Switch>
       </div>
