@@ -2,11 +2,8 @@
     max-width: 1140px;
     width: 100%;
     margin: 0 auto;
-    display: flex;
     padding: 10px;
-    justify-content: space-between;
 }
-
 
 .brand, .nav-link {
     text-transform: uppercase;
@@ -23,12 +20,13 @@
 
 .topnav {
     display: flex;
+    justify-content: space-around;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.topnav, .nav-link {
+.nav-link {
     text-decoration: none;
     padding-left: 20px;
     font-size: 20px;

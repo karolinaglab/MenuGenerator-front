@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import '../styles/SignIn.css';
 import '../styles/IngredientsSearch.css';
 import API from '../axiosConfig';
-import NavigationBar from './NavigationBar';
 
 class IngredientsSearch extends Component {
 
@@ -31,14 +30,6 @@ class IngredientsSearch extends Component {
           .catch((error) => {
               console.log(error);
           })
-
-        //   const myData = this.state.ingredients
-        //     .sort(function(a, b) {
-        //         if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-        //         if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-        //         return 0;
-        //     })
-        //     .map((item, i) => <List key={i} data={item} />);
     }
 
 

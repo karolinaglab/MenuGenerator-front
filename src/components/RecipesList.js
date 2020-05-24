@@ -85,7 +85,6 @@ class RecipeList extends Component {
                     </div>
 
                     <div className="btn-group btn-group-toggle recipeType" data-toggle="buttons">
-                        {/* <label className="btn btn-secondary active"> */}
                         <label className="btn btn-secondary">
                             <input type="radio" name="options" value="ALL" id="allPreferences" onClick={this.handleFoodPreferencesChange} defaultChecked={this.state.foodPreferences === "ALL"}/> Wszystko
                         </label>

@@ -13,7 +13,7 @@ class NavigationBar extends Component {
         }
     }
 
-    handleOnClick = event => {
+    handleLogoutButton = event => {
         localStorage.removeItem('accessToken');
         this.props.signOut();
         this.props.history.push("/")
@@ -30,7 +30,7 @@ class NavigationBar extends Component {
                         <li><Link className="nav-link" to="/main">Jadłospisy</Link></li>
                         <li><Link className="nav-link" to="/recipes">Przepisy</Link></li>
                         <li><Link className="nav-link" to="/ingredients">Składniki</Link></li>
-                        <button className="logout btn btn-outline-dark" onClick={this.handleOnClick}>Wyloguj się</button>
+                        <button className="logout btn btn-outline-dark" onClick={this.handleLogoutButton}>Wyloguj się</button>
                     </ul>
                 </nav>
 

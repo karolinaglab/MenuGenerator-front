@@ -44,8 +44,8 @@ class Recipe extends Component {
         amountTypesMap.set('PIECES', 'szt.');
         return (
             <div>
-                <h1 className="recipeTitle">{this.state.recipe.recipeName}</h1>
                 <div className="container recipeContainer">
+                    <h1 className="recipeTitle">{this.state.recipe.recipeName}</h1>
                     <div className="row">
                         <div className="col"></div>
                         <div className="col-md-5 col-bg-5 recipeDetails">
