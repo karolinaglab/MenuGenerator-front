@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import API from '../axiosConfig';
 import '../styles/MainPage.css';
 import Menu from './Menu';
 
-class MainPage extends Component {
+class ChosenMenu extends Component {
 
 
     constructor(props){
         super(props);
         this.state={
-            recipeInfos: [],
             menus: [],
-            foundMenu: ''
+            id: this.props.match.params.id
         }
 
         if(!localStorage.getItem('accessToken')) {
@@ -22,7 +20,8 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-        API.get(`/todaymenu`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
+        const id = this.state.id;
+        API.get(`/menu/${id}`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -37,27 +36,16 @@ class MainPage extends Component {
           })
     }
 
-    handleCreateMenuButton = event => {
-        this.props.history.push("/createmenu");
-    }
 
     render() {
         return (
             <div>
-                {this.state.foundMenu && 
-                        this.state.menus.map((menu, index) => 
+                {this.state.menus.map((menu, index) => 
                             <Menu key={index} recipeInfos={menu}></Menu>  
-                        )
-                }
-                {!this.state.foundMenu && 
-                <div className="container menuContainer">
-                    <h1>Nie wygenerowano jadłospisu na dzisiejszy dzień</h1>
-                </div>
-                }
-                <button type="button" className="btn btn-outline-secondary btn-lg createMenuButton" onClick={this.handleCreateMenuButton}>Stwórz nowy jadłospis</button>
+                )}
             </div>
         );
     }
 }
 
-export default withRouter (MainPage);
+export default withRouter (ChosenMenu);

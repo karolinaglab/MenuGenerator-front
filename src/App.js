@@ -14,6 +14,9 @@ import SignUp from './components/SignUp';
 import IngredientsSearch from './components/IngredientsSearch';
 import RecipesList from './components/RecipesList';
 import Recipe from './components/Recipe';
+import MenuCreator from './components/MenuCreator';
+import MenuList from './components/MenuList';
+import ChosenMenu from './components/ChosenMenu';
 
 class App extends Component {
 
@@ -61,6 +64,15 @@ class App extends Component {
           </Route>
           <Route exact path="/recipe/:id">
             <Recipe />
+          </Route>
+          <Route exact path="/createmenu">
+            <MenuCreator />
+          </Route>
+          <Route exact path="/menulist">
+            <MenuList />
+          </Route>
+          <Route exact path="/menu/:id">
+            <ChosenMenu />
           </Route>
         </Switch>
       </div>

@@ -66,7 +66,6 @@ class RecipeList extends Component {
                     <h1>Poznaj przepisy, których używamy w naszych jadłospisach!</h1>
 
                     <div className="btn-group btn-group-toggle recipeType" data-toggle="buttons">
-                        {/* <label className="btn btn-secondary active"> */}
                         <label className="btn btn-secondary">
                             <input type="radio" name="options" value="ALL_TYPES" id="allType" onClick={this.handleRecipeTypeChange} defaultChecked={this.state.recipeType === "ALL_TYPES"}/> Wszystko
                         </label>
@@ -106,9 +105,6 @@ class RecipeList extends Component {
                             <div className="recipe-object" key={recipe.id}>
                                 <img className="recipe-img" src={recipe.src}/>
                                 <Link to={`/recipe/${recipe.id}`}>{recipe.recipeName}</Link>
-                                        {/* <div className="recipe-info">
-                                            
-                                        </div> */}
                             </div>)
                         }
                     </div>

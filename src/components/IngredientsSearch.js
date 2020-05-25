@@ -25,7 +25,9 @@ class IngredientsSearch extends Component {
           .then(res => {
             console.log(res);
             console.log(res.data);
-            this.setState({ingredients: res.data});
+            const ingredients = res.data;
+            const sortedIngredients = ingredients.sort(this.sortList);
+            this.setState({ ingredients: sortedIngredients });
           })
           .catch((error) => {
               console.log(error);
@@ -53,14 +55,25 @@ class IngredientsSearch extends Component {
           .then(res => {
             console.log(res);
             console.log(res.data);
-            this.setState({ingredients: res.data});
-            this.setState({isError: false});
+            const ingredients = res.data;
+            const sortedIngredients = ingredients.sort(this.sortList);
+            this.setState({ ingredients: sortedIngredients });
           })
           .catch((error) => {
               console.log(error);
           })
       }
 
+
+    sortList(a, b){
+        if ( a.name < b.name ){
+            return -1;
+          }
+          if ( a.name > b.name ){
+            return 1;
+          }
+          return 0;
+    }
 
     render() {
         return (

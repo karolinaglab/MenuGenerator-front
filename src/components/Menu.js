@@ -19,8 +19,7 @@ class Menu extends Component {
         recipeTypesMap.set('DINNER', 'Obiad');
         recipeTypesMap.set('SUPPER', 'Kolacja');
         return (
-            <div>
-                <div>
+            
                     <div className="container menuContainer">
                         <h1>Twój jadłospis na {this.props.recipeInfos[0].recipeDate}</h1>
                         <div className="recipes-wrapper">
@@ -40,8 +39,6 @@ class Menu extends Component {
                             }
                         </div>
                     </div>
-                </div> 
-            </div>
         );
     }
 }
