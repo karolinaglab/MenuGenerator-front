@@ -13,7 +13,7 @@ class Menu extends Component {
     
 
     render() {
-        var recipeTypesMap = new Map();
+        let recipeTypesMap = new Map();
         recipeTypesMap.set('BREAKFAST', 'Śniadanie');
         recipeTypesMap.set('SECOND_MEAL', 'Drugie śniadanie/Deser');
         recipeTypesMap.set('DINNER', 'Obiad');

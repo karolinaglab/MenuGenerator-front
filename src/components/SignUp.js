@@ -13,8 +13,8 @@ class SignUp extends Component {
         height:'',
         bodyWeight:'',
         age:'',
-        activity:'',
-        sex:'',
+        activity:'NONE',
+        sex:'FEMALE',
         }
     }
 

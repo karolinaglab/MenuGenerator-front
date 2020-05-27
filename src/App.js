@@ -17,6 +17,7 @@ import Recipe from './components/Recipe';
 import MenuCreator from './components/MenuCreator';
 import MenuList from './components/MenuList';
 import ChosenMenu from './components/ChosenMenu';
+import User from './components/User';
 
 class App extends Component {
 
@@ -73,6 +74,9 @@ class App extends Component {
           </Route>
           <Route exact path="/menu/:id">
             <ChosenMenu />
+          </Route>
+          <Route exact path="/user">
+            <User />
           </Route>
         </Switch>
       </div>

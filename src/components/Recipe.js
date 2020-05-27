@@ -39,7 +39,7 @@ class Recipe extends Component {
 
 
     render() {
-        var amountTypesMap = new Map();
+        let amountTypesMap = new Map();
         amountTypesMap.set('GRAMS', 'g');
         amountTypesMap.set('PIECES', 'szt.');
         return (

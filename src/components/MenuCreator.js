@@ -11,8 +11,8 @@ class MenuCreator extends Component {
     constructor(props){
         super(props);
         this.state={
-            menuType: '',
-            foodPreferences: '',
+            menuType: 'DAILY_MENU',
+            foodPreferences: 'ALL',
             isCreated: false,
             recipeInfos: []
         }
@@ -60,13 +60,6 @@ class MenuCreator extends Component {
     }
 
     sortList(a, b){
-        // if ( a.recipeDate < b.recipeDate ){
-        //     return -1;
-        //   }
-        //   if ( a.recipeDate > b.recipeDate ){
-        //     return 1;
-        //   }
-        //   return 0;
         {return a.id-b.id};
     }
 
@@ -74,7 +67,6 @@ class MenuCreator extends Component {
     render() {
         return (
             <div className="container">
-                hihi
                 <form onSubmit={this.createMenu}>
                     <div className="form-group">
                         <label>Wybierz rodzaj jadłospisu</label>

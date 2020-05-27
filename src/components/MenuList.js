@@ -35,7 +35,6 @@ class MenuList extends Component {
 
 
     render() {
-        console.log(this.state.menus);
         return (
             <div className="container">
                 <h1>Twoje jadłospisy</h1>

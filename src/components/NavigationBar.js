@@ -26,7 +26,7 @@ class NavigationBar extends Component {
                     <ul className="topnav">
                         <div className="brand">Menu<span className="generator">Generator</span></div>
                         <li><Link className="nav-link" to="/main">Strona główna</Link></li>
-                        <li><Link className="nav-link" to="/main">Profil</Link></li>
+                        <li><Link className="nav-link" to="/user">Profil</Link></li>
                         <li><Link className="nav-link" to="/menulist">Jadłospisy</Link></li>
                         <li><Link className="nav-link" to="/recipes">Przepisy</Link></li>
                         <li><Link className="nav-link" to="/ingredients">Składniki</Link></li>
