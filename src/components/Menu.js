@@ -5,13 +5,6 @@ import '../styles/MainPage.css';
 
 class Menu extends Component {
 
-
-    constructor(props){
-        super(props);
-    }
-
-    
-
     render() {
         let recipeTypesMap = new Map();
         recipeTypesMap.set('BREAKFAST', 'Śniadanie');
@@ -33,7 +26,7 @@ class Menu extends Component {
                                         </div>
                                     </div> 
                                     <div className="img-wrapper">
-                                        <img className="recipe-img" src={recipeinfo.recipe.src}/>
+                                        <img className="recipe-img" src={recipeinfo.recipe.src} alt="Pyszne jedzenie"/>
                                     </div>
                                 </div>)
                             }

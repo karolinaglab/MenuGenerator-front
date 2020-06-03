@@ -1,40 +1,42 @@
-.navbar {
+/* .navbar {
     max-width: 1140px;
     width: 100%;
     margin: 0 auto;
     padding: 10px;
-}
+} */
 
 .brand, .nav-link {
     text-transform: uppercase;
     color: #303137;
+    margin-left: 15px;
 }
 
 .brand {
     font-size: 25px;
+    color: #ffffff;
 }
 
 .generator {
-    color: #004d00;
+    color: #33cc33;
 }
 
-.topnav {
+/* .topnav {
     display: flex;
     justify-content: space-around;
     margin: 0;
     padding: 0;
     list-style: none;
-}
+} */
 
-.nav-link {
+/* .nav-link {
     text-decoration: none;
     padding-left: 20px;
     font-size: 20px;
-}
+} */
 
 .logout {
     font-size: 20px;
     text-transform: uppercase;
-    color: #303137;
+    color: #33cc33;
     border: none;
 }

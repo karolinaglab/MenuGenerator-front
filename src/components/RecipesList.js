@@ -103,7 +103,7 @@ class RecipeList extends Component {
                     <div className="recipes-wrapper">
                         {this.state.recipes.map(recipe =>
                             <div className="recipe-object" key={recipe.id}>
-                                <img className="recipe-img" src={recipe.src}/>
+                                <img className="recipe-img" src={recipe.src} alt="Pyszne jedzenie"/>
                                 <Link to={`/recipe/${recipe.id}`}>{recipe.recipeName}</Link>
                             </div>)
                         }

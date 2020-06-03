@@ -47,7 +47,7 @@ class IngredientsSearch extends Component {
     }
 
     handleSubmit = event => {
-        event.preventDefault();
+        event.persist();
     
         const name = this.state.name;
     
@@ -77,14 +77,13 @@ class IngredientsSearch extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1>Lista składników wraz z ich kalorycznością</h1>
 
                 <nav className="navbar navbar-light  ingredientNav">
                     <form className="form-inline" onSubmit={this.handleSubmit}>
                         <h4>Znajdź składnik w tabeli lub wyszukaj go</h4>  
                         <input className="form-control mr-sm-2" type="search" placeholder="Wyszukaj składnik" aria-label="Search" onChange={this.handleChange}/>
-                        <button type="button" className="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
                     </form>
                 </nav>
 

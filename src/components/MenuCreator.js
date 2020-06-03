@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import API from '../axiosConfig';
 import { withRouter } from 'react-router-dom';
 import '../styles/MainPage.css';
@@ -60,7 +59,7 @@ class MenuCreator extends Component {
     }
 
     sortList(a, b){
-        {return a.id-b.id};
+        return a.id-b.id;
     }
 
 

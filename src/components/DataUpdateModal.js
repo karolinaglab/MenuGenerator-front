@@ -9,6 +9,7 @@ class DataUpdateModal extends Component {
     constructor(props){
         super(props);
         this.state={
+            isError: false,
           ...this.props.user
 
         }
@@ -56,9 +57,10 @@ class DataUpdateModal extends Component {
             console.log(res);
             console.log(res.data);
             this.props.fetchUserData();
-
+            this.setState({isError: false});
           })
           .catch((error) => {
+              this.setState({isError: true});
               console.log(error);
           })
     }
@@ -83,13 +85,13 @@ class DataUpdateModal extends Component {
                         <div className="modal-body">
                             <form onSubmit={this.userDataUpdate}>
                                     <div className="form-group input-form">
-                                        <input type="text" className="form-control" defaultValue={this.state.height} onChange={this.handleHeightChange} id="height" placeholder="Wysokość w cm*"/>
+                                        <input type="number" className="form-control" defaultValue={this.state.height} onChange={this.handleHeightChange} id="height" placeholder="Wysokość w cm*"/>
                                     </div>
                                     <div className="form-group input-form">
-                                        <input type="text" className="form-control" defaultValue={this.state.bodyWeight} onChange={this.handleWeightChange} id="bodyWeight" placeholder="Masa ciała w kg*"/>
+                                        <input type="number" className="form-control" defaultValue={this.state.bodyWeight} onChange={this.handleWeightChange} id="bodyWeight" placeholder="Masa ciała w kg*"/>
                                     </div>
                                     <div className="form-group input-form">
-                                        <input type="text" className="form-control" defaultValue={this.state.age} onChange={this.handleAgeChange} id="age" placeholder="Wiek*"/>
+                                        <input type="number" className="form-control" defaultValue={this.state.age} onChange={this.handleAgeChange} id="age" placeholder="Wiek*"/>
                                     </div>
                                     <div className="form-group">
                                         <select className="form-control" defaultValue={this.state.sex} onChange={this.handleSexChange} id="sex">
@@ -106,6 +108,7 @@ class DataUpdateModal extends Component {
                                             <option value="VERY_HIGH">Bardzo wysoki</option>
                                         </select>
                                     </div>
+                                    {this.state.isError &&<div className="error">Wszystkie pola muszą być wypełnione!</div>}
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Zamknij</button>
                                         <button type="submit" className="btn btn-primary">Zapisz zmiany</button>

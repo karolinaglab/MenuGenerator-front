@@ -63,7 +63,7 @@ class Recipe extends Component {
                             </div>
                         </div>
                         <div className="col-md-5 col-bg-5">
-                            <img className="recipe-img" src={this.state.recipe.src}/>
+                            <img className="recipe-img" src={this.state.recipe.src} alt="Pyszne jedzenie"/>
                         </div>
                         <div className="col"></div>
 

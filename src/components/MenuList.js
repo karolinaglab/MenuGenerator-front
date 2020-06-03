@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import API from '../axiosConfig';
 import { withRouter } from 'react-router-dom';
 import '../styles/MainPage.css';
-import Menu from './Menu';
 
 class MenuList extends Component {
 

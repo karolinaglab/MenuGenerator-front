@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import API from '../axiosConfig';
+import '../styles/SignUp.css';
 
 class SignUp extends Component {
 
@@ -15,6 +16,8 @@ class SignUp extends Component {
         age:'',
         activity:'NONE',
         sex:'FEMALE',
+        isError: false,
+        passwordToShort: false
         }
     }
 
@@ -29,6 +32,11 @@ class SignUp extends Component {
 
     handlePasswordChange = event => {
         this.setState({ password: event.target.value });
+        if (this.state.password.length < 5 || this.state.password.length > 20) {
+            this.setState({passwordToShort: true});
+        } else {
+            this.setState({passwordToShort: false});
+        }
     }
 
     handleHeightChange = event => {
@@ -72,6 +80,7 @@ class SignUp extends Component {
             this.props.history.push("/")
           })
           .catch((error) => {
+            this.setState({isError: true});
             console.log(error);
         })
       }
@@ -93,22 +102,29 @@ class SignUp extends Component {
                             <div className="form-group input-form">
                                 <input type="password" className="form-control" onChange={this.handlePasswordChange} id="password" placeholder="Hasło*"/>
                             </div>
+                            {this.state.passwordToShort && <div className="error">Hasło powinno mieściś się w przedziale 6-20 znaków</div>}
                             <div className="form-group input-form">
-                                <input type="text" className="form-control" onChange={this.handleHeightChange} id="height" placeholder="Wysokość w cm*"/>
+                                <input type="number" className="form-control" onChange={this.handleHeightChange} id="height" placeholder="Wysokość w cm*"/>
                             </div>
                             <div className="form-group input-form">
-                                <input type="text" className="form-control" onChange={this.handleWeightChange} id="bodyWeight" placeholder="Masa ciała w kg*"/>
+                                <input type="number" className="form-control" onChange={this.handleWeightChange} id="bodyWeight" placeholder="Masa ciała w kg*"/>
                             </div>
                             <div className="form-group input-form">
-                                <input type="text" className="form-control" onChange={this.handleAgeChange} id="age" placeholder="Wiek*"/>
+                                <input type="number" className="form-control" onChange={this.handleAgeChange} id="age" placeholder="Wiek*"/>
                             </div>
                             <div className="form-group">
+                                <div className="labelWrapper">
+                                    <label>Wybierz płeć</label>
+                                </div>
                                 <select className="form-control" value={this.state.sex} onChange={this.handleSexChange} id="sex">
                                     <option value="FEMALE">Kobieta</option>
                                     <option value="MALE">Mężczyzna</option>
                                 </select>
                             </div>
                             <div className="form-group">
+                                <div className="labelWrapper">
+                                    <label>Wybierz poziom swojej aktywności fizycznej:</label>
+                                </div>
                                 <select className="form-control" value={this.state.activity} onChange={this.handleActivityChange} id="activity">
                                     <option value="NONE">Brak</option>
                                     <option value="LOW">Niski</option>
@@ -117,6 +133,7 @@ class SignUp extends Component {
                                     <option value="VERY_HIGH">Bardzo wysoki</option>
                                 </select>
                             </div>
+                            {this.state.isError &&<div className="error">Wszystkie pola muszą być wypełnione!</div>}
                             <button type="submit" className="btn btn-primary">Sign Up</button>
                         </form>
                     </div>
