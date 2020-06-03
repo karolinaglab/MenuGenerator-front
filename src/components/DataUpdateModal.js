@@ -19,26 +19,8 @@ class DataUpdateModal extends Component {
         }
     }
 
-
-
-    handleHeightChange = event => {
-        this.setState({ height: event.target.value });
-    }
-
-    handleWeightChange = event => {
-        this.setState({ bodyWeight: event.target.value });
-    }
-
-    handleAgeChange = event => {
-        this.setState({ age: event.target.value });
-    }
-
-    handleSexChange = event => {
-        this.setState({ sex: event.target.value });
-    }
-
-    handleActivityChange = event => {
-        this.setState({ activity: event.target.value });
+    handleChange = event => {
+        this.setState({[event.target.name]: event.target.value})
     }
 
 
@@ -85,22 +67,22 @@ class DataUpdateModal extends Component {
                         <div className="modal-body">
                             <form onSubmit={this.userDataUpdate}>
                                     <div className="form-group input-form">
-                                        <input type="number" className="form-control" defaultValue={this.state.height} onChange={this.handleHeightChange} id="height" placeholder="Wysokość w cm*"/>
+                                        <input type="number" className="form-control" name="height" defaultValue={this.state.height} onChange={this.handleChange} id="height" placeholder="Wysokość w cm*"/>
                                     </div>
                                     <div className="form-group input-form">
-                                        <input type="number" className="form-control" defaultValue={this.state.bodyWeight} onChange={this.handleWeightChange} id="bodyWeight" placeholder="Masa ciała w kg*"/>
+                                        <input type="number" className="form-control" name="bodyWeight" defaultValue={this.state.bodyWeight} onChange={this.handleChange} id="bodyWeight" placeholder="Masa ciała w kg*"/>
                                     </div>
                                     <div className="form-group input-form">
-                                        <input type="number" className="form-control" defaultValue={this.state.age} onChange={this.handleAgeChange} id="age" placeholder="Wiek*"/>
+                                        <input type="number" className="form-control" defaultValue={this.state.age} onChange={this.handleChange} name="age" id="age" placeholder="Wiek*"/>
                                     </div>
                                     <div className="form-group">
-                                        <select className="form-control" defaultValue={this.state.sex} onChange={this.handleSexChange} id="sex">
+                                        <select className="form-control" name="sex" defaultValue={this.state.sex} onChange={this.handleChange} id="sex">
                                             <option value="FEMALE">Kobieta</option>
                                             <option value="MALE">Mężczyzna</option>
                                         </select>
                                     </div>
                                     <div className="form-group">
-                                        <select className="form-control" defaultValue={this.state.activity} onChange={this.handleActivityChange} id="activity">
+                                        <select className="form-control" name="activity" defaultValue={this.state.activity} onChange={this.handleChange} id="activity">
                                             <option value="NONE">Brak</option>
                                             <option value="LOW">Niski</option>
                                             <option value="AVERAGE">Średni</option>

@@ -43,7 +43,7 @@ class Recipe extends Component {
         amountTypesMap.set('GRAMS', 'g');
         amountTypesMap.set('PIECES', 'szt.');
         return (
-            <div>
+            <>
                 <div className="container recipeContainer">
                     <h1 className="recipeTitle">{this.state.recipe.recipeName}</h1>
                     <div className="row">
@@ -69,7 +69,7 @@ class Recipe extends Component {
 
                     </div>
                 </div>
-            </div>
+            </>
         );
     }
 }
