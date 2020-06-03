@@ -20,23 +20,27 @@ class MainPage extends Component {
         }
     }
 
-    componentDidMount() {
-        API.get(`/todaymenu`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
+    //[CODE REVIEW] Przykład użycia składy async/await. Jest dużo wygodniejsza i czytelnieszja niż .then()
+    async fetchTodayMenu() {
+        try {
+            const res = await API.get(`/todaymenu`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
             this.setState({
                 menus: res.data,
                 foundMenu: true
             });
-          })
-          .catch((error) => {
+        } catch(error) {
             this.setState({foundMenu: false});
             console.log(error);
-          })
+        }
+       
+
     }
 
-    handleCreateMenuButton = event => {
+    async componentDidMount() {
+        await this.fetchTodayMenu()
+    }
+
+    handleCreateMenuButton = () => {
         this.props.history.push("/createmenu");
     }
 

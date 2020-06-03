@@ -22,9 +22,7 @@ class IngredientsSearch extends Component {
 
     componentDidMount() {
         API.get(`/ingredient`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
+          .then(res => {  
             const ingredients = res.data;
             const sortedIngredients = ingredients.sort(this.sortList);
             this.setState({ ingredients: sortedIngredients });
@@ -53,8 +51,6 @@ class IngredientsSearch extends Component {
     
         API.get(`/ingredients/?name=${name}`, {headers: {'Authorization': localStorage.getItem('accessToken')}})
           .then(res => {
-            console.log(res);
-            console.log(res.data);
             const ingredients = res.data;
             const sortedIngredients = ingredients.sort(this.sortList);
             this.setState({ ingredients: sortedIngredients });

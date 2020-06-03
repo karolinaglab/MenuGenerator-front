@@ -5,15 +5,7 @@ import '../styles/NavigationBar.css';
 
 class NavigationBar extends Component {
 
-
-    constructor(props){
-        super(props);
-        this.state={
-
-        }
-    }
-
-    handleLogoutButton = event => {
+    handleLogoutButton = () => {
         localStorage.removeItem('accessToken');
         this.props.signOut();
         this.props.history.push("/")
@@ -30,26 +22,25 @@ class NavigationBar extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul className="navbar-nav">
+                        <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/main">Strona główna</Link>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/user">Profil</Link>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/menulist">Jadłospisy</Link>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/recipes">Przepisy</Link>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/ingredients">Składniki</Link>
                             </li>
-                            <li class="nav-item">
-                                <button className="logout btn btn-outline-dark" onClick={this.handleLogoutButton}>Wyloguj się</button>
-                            </li>
-                        </ul>
+                            
+                        </ul>                        
+                        <button className="logout btn btn-outline-dark" onClick={this.handleLogoutButton}>Wyloguj się</button>                    
                     </div>
                 </nav>
 
